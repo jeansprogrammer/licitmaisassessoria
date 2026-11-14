@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><script src="https://myhub.ia.br/canvas-vendor/tailwind.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>licit Mais Assessoria — Consultoria em Licitações</title>
+<link rel="icon" type="image/png" href="static/logo.png">
+<link rel="apple-touch-icon" href="static/logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Header -->
+<header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#inicio" class="flex items-center gap-3">
+        <img src="static/logo.png" alt="licit Mais Logo" class="w-12 h-12 object-contain">
+        <div class="leading-tight">
+          <span class="block font-bold text-[#0B2545] text-lg">Licit Mais</span>
+          <span class="block text-xs text-slate-500 -mt-1">Assessoria em Licitações</span>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#quem-somos" class="nav-link hover:text-[#0B2545] transition">Quem Somos</a>
+        <a href="#resultados" class="nav-link hover:text-[#0B2545] transition">Resultados</a>
+        <a href="#servicos" class="nav-link hover:text-[#0B2545] transition">Serviços</a>
+        <a href="#planos" class="nav-link hover:text-[#0B2545] transition">Planos</a>
+        <a href="#processo" class="nav-link hover:text-[#0B2545] transition">Processo</a>
+        <a href="#depoimentos" class="nav-link hover:text-[#0B2545] transition">Depoimentos</a>
+        <a href="#contato" class="ml-2 px-5 py-2.5 rounded-lg bg-[#E8A33D] text-white font-semibold hover:bg-[#d6932f] transition shadow-sm">Fale Conosco</a>
+      </nav>
+      <button id="menuBtn" class="lg:hidden p-2 rounded-md text-slate-700 hover:bg-slate-100" aria-label="Abrir menu">
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden bg-white border-t border-slate-200 px-4 pb-6 pt-2 space-y-1 text-sm font-medium text-slate-700">
+    <a href="#quem-somos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Quem Somos</a>
+    <a href="#resultados" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Resultados</a>
+    <a href="#servicos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Serviços</a>
+    <a href="#planos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Planos</a>
+    <a href="#processo" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Processo</a>
+    <a href="#depoimentos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Depoimentos</a>
+    <a href="#contato" class="block mt-3 px-5 py-3 rounded-lg bg-[#E8A33D] text-white font-semibold text-center">Fale Conosco</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="inicio" class="section-anchor hero-section relative pt-36 pb-24 text-white overflow-hidden">
+  <div class="hero-bg" style="background-image:url('static/business-handshake-moment-in-a-corporate-environme.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="reveal-hero inline-flex items-center gap-2 px-4 py-1.5 rounded-full shimmer-badge text-sm font-medium text-[#E8A33D]">
+        <span class="w-2 h-2 rounded-full bg-[#E8A33D]"></span> Consultoria especializada em licitações públicas
+      </span>
+      <h1 class="hero-title mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+        Sua empresa vencendo <span class="text-[#E8A33D]">licitações</span> com estratégia e segurança
+      </h1>
+      <p class="hero-title delay-2 mt-6 text-lg text-slate-300 max-w-xl">
+        Transformamos oportunidades em contratos. Cuidamos de todo o processo licitatório — do edital à assinatura — para você focar no que importa: crescer.
+      </p>
+      <div class="hero-title delay-3 mt-8 flex flex-col sm:flex-row gap-4">
+        <a href="#contato" class="cta-pulse px-7 py-3.5 rounded-lg bg-[#E8A33D] text-white font-semibold text-center hover:bg-[#d6932f] transition shadow-lg">Solicitar Proposta</a>
+        <a href="#processo" class="px-7 py-3.5 rounded-lg border border-white/30 text-white font-semibold text-center hover:bg-white/10 transition">Como Funciona</a>
+      </div>
+      <div class="hero-title delay-4 mt-10 flex items-center gap-6 text-sm text-slate-300">
+        <div class="flex items-center gap-2"><span class="text-[#E8A33D]">★</span> 4,9/5 de avaliação</div>
+        <div class="flex items-center gap-2"><span class="text-[#E8A33D]">✓</span> +250 licitações vencidas</div>
+      </div>
+    </div>
+    <div class="hidden lg:block">
+      <div class="relative mx-auto max-w-md">
+        <div class="floating bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 shadow-2xl">
+          <div class="flex items-center gap-4 pb-5 border-b border-white/10">
+            <div class="w-12 h-12 rounded-xl bg-[#E8A33D]/20 flex items-center justify-center text-2xl">📄</div>
+            <div>
+              <p class="font-semibold">Edital nº 042/2026</p>
+              <p class="text-sm text-slate-400">Pregão Eletrônico — Aberto</p>
+            </div>
+            <span class="ml-auto px-3 py-1 rounded-full bg-green-500/20 text-green-300 text-xs font-semibold">Disponível</span>
+          </div>
+          <div class="space-y-4 py-5">
+            <div class="flex justify-between text-sm"><span class="text-slate-400">Órgão</span><span class="font-medium">Secretaria de Saúde</span></div>
+            <div class="flex justify-between text-sm"><span class="text-slate-400">Objeto</span><span class="font-medium">Material hospitalar</span></div>
+            <div class="flex justify-between text-sm"><span class="text-slate-400">Valor estimado</span><span class="font-medium text-[#E8A33D]">R$ 1,8 mi</span></div>
+            <div class="flex justify-between text-sm"><span class="text-slate-400">Prazo</span><span class="font-medium">15/12/2026</span></div>
+          </div>
+          <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+            <div class="text-sm">
+              <p class="text-slate-400">Status da análise</p>
+              <p class="font-semibold text-green-300">✓ Viável para seu segmento</p>
+            </div>
+            <div class="w-16 h-16 flex items-center justify-center relative">
+              <svg viewBox="0 0 36 36" class="w-16 h-16 -rotate-90">
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="#ffffff1a" stroke-width="4"/>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="#E8A33D" stroke-width="4" stroke-dasharray="92 100" stroke-linecap="round"/>
+              </svg>
+              <span class="absolute text-sm font-bold text-[#E8A33D]">92%</span>
+            </div>
+          </div>
+        </div>
+        <div class="floating-delay absolute -bottom-6 -left-6 bg-white text-slate-800 rounded-xl shadow-xl px-5 py-4">
+          <p class="text-sm font-semibold text-green-600">▲ Contrato assinado</p>
+          <p class="text-xs text-slate-500">R$ 2,3 mi — Prefeitura de Garanhuns</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quem Somos -->
+<section id="quem-somos" class="section-anchor about-section relative py-24 bg-white">
+  <div class="about-bg" style="background-image:url('static/low-angle-view-of-modern-government-and-corporate.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal-left">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Quem Somos</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Especialistas em transformar editais em contratos fechados</h2>
+      <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+        A <strong class="text-[#0B2545]">licit Mais Assessoria</strong> nasceu para simplificar o universo das licitações públicas. Somos uma equipe multidisciplinar com mais de 12 anos de experiência, atuando lado a lado com empresas de todos os portes e segmentos.
+      </p>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        Analisamos editais, elaboramos propostas competitivas, cuidamos da documentação e acompanhamos cada etapa — sempre com transparência total e foco em resultado.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <div class="flex items-center gap-3 px-5 py-3 rounded-lg bg-slate-50 border border-slate-200 hover-card">
+          <span class="text-xl">🏛️</span>
+          <div><p class="font-semibold text-[#0B2545]">Atuação nacional</p><p class="text-xs text-slate-500">Editais de todo o Brasil</p></div>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-3 rounded-lg bg-slate-50 border border-slate-200 hover-card">
+          <span class="text-xl">🤝</span>
+          <div><p class="font-semibold text-[#0B2545]">Equipe dedicada</p><p class="text-xs text-slate-500">Especialistas por segmento</p></div>
+        </div>
+      </div>
+      <a href="#contato" class="mt-8 inline-block px-7 py-3.5 rounded-lg bg-[#0B2545] text-white font-semibold hover:bg-[#13315C] transition shadow-md hover:shadow-lg">Fale com um especialista</a>
+    </div>
+    <div class="reveal-right relative">
+      <img src="static/professional-photo-of-a-cheerful-brazilian-busines.jpg" alt="Equipe licit Mais" class="rounded-2xl shadow-2xl w-full object-cover h-[420px]">
+      <div class="absolute -bottom-6 -left-6 bg-[#0B2545] text-white rounded-xl shadow-xl px-6 py-4">
+        <p class="text-2xl font-bold">12+</p>
+        <p class="text-xs text-slate-300">Anos de experiência</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resultados -->
+<section id="resultados" class="section-anchor results-section relative py-24 bg-[#F6F8FB]">
+  <div class="results-bg" style="background-image:url('static/close-up-of-hands-signing-a-business-contract-with.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Nossos Resultados</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Números que falam por si</h2>
+      <p class="mt-4 text-slate-600 text-lg">Resultados reais conquistados para nossos clientes em todo o país.</p>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="number-card bg-white rounded-2xl border border-slate-200 p-8 text-center hover-card">
+        <p class="text-4xl font-bold text-[#0B2545]" data-count="250">0+</p>
+        <p class="mt-2 text-slate-600">Licitações vencidas</p>
+      </div>
+      <div class="number-card delay-1 bg-white rounded-2xl border border-slate-200 p-8 text-center hover-card">
+        <p class="text-4xl font-bold text-[#0B2545]">R$ <span data-count="48">0</span>mi</p>
+        <p class="mt-2 text-slate-600">Em contratos firmados</p>
+      </div>
+      <div class="number-card delay-2 bg-white rounded-2xl border border-slate-200 p-8 text-center hover-card">
+        <p class="text-4xl font-bold text-[#E8A33D]"><span data-count="92">0</span>%</p>
+        <p class="mt-2 text-slate-600">Taxa de sucesso</p>
+      </div>
+      <div class="number-card delay-3 bg-white rounded-2xl border border-slate-200 p-8 text-center hover-card">
+        <p class="text-4xl font-bold text-[#0B2545]"><span data-count="98">0</span>%</p>
+        <p class="mt-2 text-slate-600">Clientes satisfeitos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Diferenciais -->
+<section id="diferenciais" class="section-anchor diff-section relative py-24 bg-white">
+  <div class="diff-bg" style="background-image:url('static/business-meeting-photo-with-colleagues-discussing.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Por que escolher a gente</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">O que torna a licit Mais diferente</h2>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="service-card group p-8 rounded-2xl border border-slate-200 bg-white">
+        <div class="w-14 h-14 rounded-xl bg-[#E8A33D]/10 flex items-center justify-center text-2xl">🎯</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Foco em resultado</h3>
+        <p class="mt-3 text-slate-600">Estratégias personalizadas que maximizam suas chances de vencer cada certame.</p>
+      </div>
+      <div class="service-card group p-8 rounded-2xl border border-slate-200 bg-white">
+        <div class="w-14 h-14 rounded-xl bg-[#E8A33D]/10 flex items-center justify-center text-2xl">🔍</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Análise minuciosa de editais</h3>
+        <p class="mt-3 text-slate-600">Identificamos riscos, oportunidades e exigências ocultas antes de você decidir participar.</p>
+      </div>
+      <div class="service-card group p-8 rounded-2xl border border-slate-200 bg-white">
+        <div class="w-14 h-14 rounded-xl bg-[#E8A33D]/10 flex items-center justify-center text-2xl">📄</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Documentação impecável</h3>
+        <p class="mt-3 text-slate-600">Cuidamos de toda a burocracia para sua empresa não ser desclassificada por detalhes.</p>
+      </div>
+      <div class="service-card group p-8 rounded-2xl border border-slate-200 bg-white">
+        <div class="w-14 h-14 rounded-xl bg-[#E8A33D]/10 flex items-center justify-center text-2xl">⚡</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Agilidade no processo</h3>
+        <p class="mt-3 text-slate-600">Resposta rápida e acompanhamento de prazos para você nunca perder uma oportunidade.</p>
+      </div>
+      <div class="service-card group p-8 rounded-2xl border border-slate-200 bg-white">
+        <div class="w-14 h-14 rounded-xl bg-[#E8A33D]/10 flex items-center justify-center text-2xl">🔒</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Segurança e transparência</h3>
+        <p class="mt-3 text-slate-600">Relatórios claros e comunicação constante — você sabe exatamente o que está acontecendo.</p>
+      </div>
+      <div class="service-card group p-8 rounded-2xl border border-slate-200 bg-white">
+        <div class="w-14 h-14 rounded-xl bg-[#E8A33D]/10 flex items-center justify-center text-2xl">📈</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Suporte pós-contrato</h3>
+        <p class="mt-3 text-slate-600">Acompanhamos a execução e ajudamos em recursos, aditivos e renovações contratuais.</p>
+      </div>
+    </div>
+    <div class="mt-12 text-center reveal">
+      <a href="#contato" class="cta-pulse inline-block px-7 py-3.5 rounded-lg bg-[#E8A33D] text-white font-semibold hover:bg-[#d6932f] transition shadow-md">Quero começar agora</a>
+    </div>
+  </div>
+</section>
+
+<!-- Serviços -->
+<section id="servicos" class="section-anchor services-section relative py-24 bg-[#F6F8FB]">
+  <div class="services-bg" style="background-image:url('static/modern-minimal-office-interior-with-large-windows.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Nossos Serviços</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Tudo o que sua empresa precisa para licitar</h2>
+      <p class="mt-4 text-slate-600 text-lg">Da identificação da oportunidade à assinatura do contrato.</p>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="service-card bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div class="w-14 h-14 rounded-xl bg-[#0B2545] text-white flex items-center justify-center text-2xl">📋</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Análise de editais</h3>
+        <p class="mt-3 text-slate-600">Leitura completa do edital com parecer sobre viabilidade, riscos e exigências para sua empresa.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div class="w-14 h-14 rounded-xl bg-[#0B2545] text-white flex items-center justify-center text-2xl">🗂️</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Elaboração de propostas</h3>
+        <p class="mt-3 text-slate-600">Propostas comerciais competitivas e alinhadas aos critérios do edital.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div class="w-14 h-14 rounded-xl bg-[#0B2545] text-white flex items-center justify-center text-2xl">🛡️</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Regularização documental</h3>
+        <p class="mt-3 text-slate-600">Organização e conferência de certidões, habilitações e documentos exigidos.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div class="w-14 h-14 rounded-xl bg-[#0B2545] text-white flex items-center justify-center text-2xl">🧾</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Envio e acompanhamento</h3>
+        <p class="mt-3 text-slate-600">Cadastro da proposta no sistema, acompanhamento da sessão e lances.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div class="w-14 h-14 rounded-xl bg-[#0B2545] text-white flex items-center justify-center text-2xl">⚖️</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Recursos e impugnações</h3>
+        <p class="mt-3 text-slate-600">Elaboração de recursos administrativos e defesa dos seus interesses.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div class="w-14 h-14 rounded-xl bg-[#0B2545] text-white flex items-center justify-center text-2xl">🤝</div>
+        <h3 class="mt-5 text-xl font-semibold text-[#0B2545]">Gestão pós-contrato</h3>
+        <p class="mt-3 text-slate-600">Acompanhamento de execução, prazos, aditivos e renovações contratuais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Planos -->
+<section id="planos" class="section-anchor plans-section relative py-24 bg-white">
+  <div class="plans-bg" style="background-image:url('static/diverse-team-of-professionals-working-on-computers.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Nossos Planos</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Investimento que se paga no primeiro contrato</h2>
+      <p class="mt-4 text-slate-600 text-lg">Planos flexíveis para o tamanho e a frequência das suas licitações.</p>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-8 flex flex-col reveal-scale">
+        <h3 class="text-lg font-semibold text-[#0B2545]">Essencial</h3>
+        <p class="mt-2 text-sm text-slate-500">Ideal para quem está começando a licitar</p>
+        <p class="mt-6 text-4xl font-bold text-[#0B2545]">R$ 497<span class="text-base font-normal text-slate-500">/mês</span></p>
+        <ul class="mt-8 space-y-3 text-sm text-slate-600 flex-1">
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Análise de até 5 editais/mês</li>
+          <li class="flex gap-2"><span class="text-green-500">✓</span> 1 proposta elaborada/mês</li>
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Suporte por WhatsApp</li>
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Checklist documental</li>
+        </ul>
+        <a href="#contato" class="mt-8 px-6 py-3 rounded-lg border-2 border-[#0B2545] text-[#0B2545] font-semibold text-center hover:bg-[#0B2545] hover:text-white transition">Começar agora</a>
+      </div>
+      <div class="plan-card relative bg-[#0B2545] text-white rounded-2xl p-8 flex flex-col shadow-xl reveal-scale delay-2">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#E8A33D] text-xs font-bold uppercase tracking-wide">Mais popular</span>
+        <h3 class="text-lg font-semibold">Profissional</h3>
+        <p class="mt-2 text-sm text-slate-300">Para empresas que licitam com frequência</p>
+        <p class="mt-6 text-4xl font-bold">R$ 997<span class="text-base font-normal text-slate-300">/mês</span></p>
+        <ul class="mt-8 space-y-3 text-sm text-slate-200 flex-1">
+          <li class="flex gap-2"><span class="text-[#E8A33D]">✓</span> Análise de até 15 editais/mês</li>
+          <li class="flex gap-2"><span class="text-[#E8A33D]">✓</span> 5 propostas elaboradas/mês</li>
+          <li class="flex gap-2"><span class="text-[#E8A33D]">✓</span> Acompanhamento de sessões e lances</li>
+          <li class="flex gap-2"><span class="text-[#E8A33D]">✓</span> Regularização documental completa</li>
+          <li class="flex gap-2"><span class="text-[#E8A33D]">✓</span> Gestor de conta dedicado</li>
+        </ul>
+        <a href="#contato" class="cta-pulse mt-8 px-6 py-3 rounded-lg bg-[#E8A33D] text-white font-semibold text-center hover:bg-[#d6932f] transition">Quero esse plano</a>
+      </div>
+      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-8 flex flex-col reveal-scale delay-3">
+        <h3 class="text-lg font-semibold text-[#0B2545]">Premium</h3>
+        <p class="mt-2 text-sm text-slate-500">Solução completa e personalizada</p>
+        <p class="mt-6 text-4xl font-bold text-[#0B2545]">R$ 1.997<span class="text-base font-normal text-slate-500">/mês</span></p>
+        <ul class="mt-8 space-y-3 text-sm text-slate-600 flex-1">
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Editais ilimitados</li>
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Propostas ilimitadas</li>
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Recursos e impugnações</li>
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Gestão pós-contrato</li>
+          <li class="flex gap-2"><span class="text-green-500">✓</span> Consultoria estratégica mensal</li>
+        </ul>
+        <a href="#contato" class="mt-8 px-6 py-3 rounded-lg border-2 border-[#0B2545] text-[#0B2545] font-semibold text-center hover:bg-[#0B2545] hover:text-white transition">Falar com a gente</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Processo -->
+<section id="processo" class="section-anchor process-section relative py-24 bg-[#F6F8FB]">
+  <div class="process-bg" style="background-image:url('static/wide-angle-photo-of-a-modern-corporate-meeting-roo.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Como Funciona</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Um processo simples do início ao fim</h2>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="process-card relative bg-white rounded-2xl p-8 border border-slate-200 reveal">
+        <div class="absolute -top-5 left-8 w-10 h-10 rounded-full bg-[#E8A33D] text-white font-bold flex items-center justify-center shadow-lg">1</div>
+        <h3 class="mt-4 text-lg font-semibold text-[#0B2545]">Contato inicial</h3>
+        <p class="mt-2 text-slate-600 text-sm">Preencha o formulário e conte sobre sua empresa e seus objetivos.</p>
+      </div>
+      <div class="process-card relative bg-white rounded-2xl p-8 border border-slate-200 reveal delay-1">
+        <div class="absolute -top-5 left-8 w-10 h-10 rounded-full bg-[#E8A33D] text-white font-bold flex items-center justify-center shadow-lg">2</div>
+        <h3 class="mt-4 text-lg font-semibold text-[#0B2545]">Diagnóstico</h3>
+        <p class="mt-2 text-slate-600 text-sm">Analisamos seu perfil, segmento e oportunidades disponíveis no mercado.</p>
+      </div>
+      <div class="process-card relative bg-white rounded-2xl p-8 border border-slate-200 reveal delay-2">
+        <div class="absolute -top-5 left-8 w-10 h-10 rounded-full bg-[#E8A33D] text-white font-bold flex items-center justify-center shadow-lg">3</div>
+        <h3 class="mt-4 text-lg font-semibold text-[#0B2545]">Plano de ação</h3>
+        <p class="mt-2 text-slate-600 text-sm">Definimos a estratégia e começamos a trabalhar nos editais selecionados.</p>
+      </div>
+      <div class="process-card relative bg-white rounded-2xl p-8 border border-slate-200 reveal delay-3">
+        <div class="absolute -top-5 left-8 w-10 h-10 rounded-full bg-[#E8A33D] text-white font-bold flex items-center justify-center shadow-lg">4</div>
+        <h3 class="mt-4 text-lg font-semibold text-[#0B2545]">Participação e vitória</h3>
+        <p class="mt-2 text-slate-600 text-sm">Acompanhamos o certame e trabalhamos até a assinatura do seu contrato.</p>
+      </div>
+    </div>
+    <div class="mt-12 text-center reveal">
+      <a href="#contato" class="cta-pulse inline-block px-7 py-3.5 rounded-lg bg-[#0B2545] text-white font-semibold hover:bg-[#13315C] transition shadow-md">Iniciar meu processo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos -->
+<section id="depoimentos" class="section-anchor relative py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Depoimentos</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Quem confia, recomenda</h2>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-8">
+      <div class="testimonial-card bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal">
+        <div class="flex text-[#E8A33D] text-lg">★★★★★</div>
+        <p class="mt-4 text-slate-700 italic">"Em menos de um ano, vencemos três pregões que sozinhos nunca conseguiríamos. A equipe é extremamente detalhista e atenciosa."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-semibold">CM</div>
+          <div><p class="font-semibold text-[#0B2545]">Carlos Menezes</p><p class="text-sm text-slate-500">Diretor — Construtora Menezes</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal delay-1">
+        <div class="flex text-[#E8A33D] text-lg">★★★★★</div>
+        <p class="mt-4 text-slate-700 italic">"A análise de editais deles evita dor de cabeça. Hoje só participamos de certames que a licit Mais aprova — e ganhamos a maioria."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-[#E8A33D] text-white flex items-center justify-center font-semibold">AF</div>
+          <div><p class="font-semibold text-[#0B2545]">Ana Ferreira</p><p class="text-sm text-slate-500">Sócia — Distribuidora AF</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal delay-2">
+        <div class="flex text-[#E8A33D] text-lg">★★★★★</div>
+        <p class="mt-4 text-slate-700 italic">"Do documento à assinatura, tudo organizado. A transparência nos relatórios nos dá total confiança no processo."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-semibold">RS</div>
+          <div><p class="font-semibold text-[#0B2545]">Ricardo Sampaio</p><p class="text-sm text-slate-500">CEO — TechSampa Informática</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contato -->
+<section id="contato" class="section-anchor contact-section relative py-24 text-white">
+  <div class="contact-bg" style="background-image:url('static/dark-photo-of-a-modern-office-interior-at-dusk-mo.png');"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14">
+    <div class="reveal-left">
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Vamos conversar</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold">Solicit uma proposta personalizada</h2>
+      <p class="mt-5 text-slate-300 text-lg leading-relaxed">
+        Preencha o formulário com seus dados e conte qual licitação deseja participar. Nossa equipe retorna em até 24h úteis com uma análise gratuita.
+      </p>
+      <div class="mt-10 space-y-5 text-slate-200">
+        <div class="flex items-start gap-4 hover-card p-2 rounded-lg">
+          <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center text-xl">📞</div>
+          <div><p class="font-semibold text-white">Telefone / WhatsApp</p><p class="text-slate-300">(87) 99999-0000</p></div>
+        </div>
+        <div class="flex items-start gap-4 hover-card p-2 rounded-lg">
+          <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center text-xl">✉️</div>
+          <div><p class="font-semibold text-white">E-mail</p><p class="text-slate-300">contato@licitmais.com.br</p></div>
+        </div>
+        <div class="flex items-start gap-4 hover-card p-2 rounded-lg">
+          <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center text-xl">📍</div>
+          <div><p class="font-semibold text-white">Endereço</p><p class="text-slate-300">Garanhuns, PE — atendimento em todo o Brasil</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal-right bg-white rounded-2xl p-8 text-slate-800 shadow-2xl">
+      <h3 class="text-2xl font-bold text-[#0B2545]">Dados para licitação</h3>
+      <p class="mt-1 text-sm text-slate-500">Preencha os campos abaixo com as informações da sua empresa.</p>
+      <form id="leadForm" class="mt-6 space-y-4" novalidate>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Nome completo *</label>
+          <input type="text" id="nome" required placeholder="Seu nome" class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 placeholder-slate-400">
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">E-mail *</label>
+            <input type="email" id="email" required placeholder="voce@empresa.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 placeholder-slate-400">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Telefone / WhatsApp *</label>
+            <input type="tel" id="telefone" required placeholder="(00) 00000-0000" class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 placeholder-slate-400">
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">CNPJ da empresa</label>
+            <input type="text" id="cnpj" placeholder="00.000.000/0000-00" class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 placeholder-slate-400">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Segmento de atuação *</label>
+            <select id="segmento" required class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white">
+              <option value="">Selecione...</option>
+              <option>Alimentação</option>
+              <option>Construção Civil</option>
+              <option>Equipamentos / TI</option>
+              <option>Materiais em geral</option>
+              <option>Saúde / Farmacêutico</option>
+              <option>Serviços</option>
+              <option>Transporte</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Tipo de licitação desejada *</label>
+          <select id="tipo" required class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white">
+            <option value="">Selecione...</option>
+            <option>Pregão Eletrônico</option>
+            <option>Pregão Presencial</option>
+            <option>Concorrência</option>
+            <option>Tomada de Preços</option>
+            <option>Convite</option>
+            <option>Dispensa de Licitação</option>
+            <option>Inexigibilidade</option>
+            <option>Ainda não sei</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Link do edital (opcional)</label>
+          <input type="url" id="edital" placeholder="https://..." class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 placeholder-slate-400">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Mensagem / observações</label>
+          <textarea id="mensagem" rows="3" placeholder="Conte mais sobre sua necessidade..." class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 placeholder-slate-400 resize-none"></textarea>
+        </div>
+        <button type="submit" class="cta-pulse w-full px-6 py-4 rounded-lg bg-[#E8A33D] text-white font-semibold text-lg hover:bg-[#d6932f] transition shadow-md">Enviar para análise gratuita</button>
+        <p id="formMsg" class="hidden text-center text-sm font-medium rounded-lg px-4 py-3"></p>
+        <p class="text-xs text-slate-400 text-center">🔒 Seus dados estão seguros. Retornamos em até 24h úteis.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#081A2E] text-slate-400 py-10 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+    <div>
+      <div class="flex items-center gap-3">
+        <img src="static/logo.png" alt="licit Mais Logo" class="w-10 h-10 object-contain">
+        <span class="font-bold text-white">licit Mais Assessoria</span>
+      </div>
+      <p class="mt-2 text-sm">Consultoria em licitações públicas — atuação em todo o Brasil.</p>
+    </div>
+    <div class="flex flex-col md:flex-row items-center gap-4 text-sm">
+      <a href="#contato" class="hover:text-white transition">Contato</a>
+      <a href="#servicos" class="hover:text-white transition">Serviços</a>
+      <a href="#planos" class="hover:text-white transition">Planos</a>
+    </div>
+    <p class="text-sm">© 2026 licit Mais Assessoria. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

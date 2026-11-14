@@ -1,0 +1,256 @@
+/* ===== RESET BASE ===== */
+html { scroll-behavior: smooth; }
+body { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif; overflow-x: hidden; }
+.section-anchor { scroll-margin-top: 5rem; }
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,163,61,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(232,163,61,0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes heroTextReveal {
+  from { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes numberPop {
+  0% { opacity: 0; transform: scale(0.3) rotate(-10deg); }
+  60% { transform: scale(1.1) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+/* ===== CLASSES DE REVEAL ===== */
+.reveal { opacity: 0; transition: opacity 0.1s; }
+.reveal.visible { animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.reveal-left { opacity: 0; }
+.reveal-left.visible { animation: fadeInLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.reveal-right { opacity: 0; }
+.reveal-right.visible { animation: fadeInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.reveal-scale { opacity: 0; }
+.reveal-scale.visible { animation: scaleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.reveal-hero { opacity: 0; }
+.reveal-hero.visible { animation: heroTextReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+.delay-1 { animation-delay: 0.1s !important; }
+.delay-2 { animation-delay: 0.2s !important; }
+.delay-3 { animation-delay: 0.3s !important; }
+.delay-4 { animation-delay: 0.4s !important; }
+.delay-5 { animation-delay: 0.5s !important; }
+.delay-6 { animation-delay: 0.6s !important; }
+
+.hero-title { opacity: 0; }
+.hero-title.visible { animation: heroTextReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+.number-card { opacity: 0; }
+.number-card.visible { animation: numberPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+/* ===== HEADER ===== */
+header { transition: box-shadow 0.3s, background 0.3s; }
+header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+/* ===== PARALLAX BACKGROUNDS ===== */
+.parallax-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  background-attachment: fixed;
+  filter: blur(6px) brightness(0.35);
+  transform: scale(1.1);
+  z-index: 0;
+}
+.parallax-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(11,37,69,0.85), rgba(11,37,69,0.7));
+}
+.parallax-bg-light::after {
+  background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(246,248,251,0.88));
+}
+.parallax-bg-dark::after {
+  background: linear-gradient(135deg, rgba(8,26,46,0.92), rgba(11,37,69,0.88));
+}
+
+.bg-image {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: blur(8px) brightness(0.95);
+  transform: scale(1.08);
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* ===== HERO ===== */
+.hero-section { position: relative; overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url("../static/business-handshake-moment-in-a-corporate-environme.png") center/cover no-repeat;
+  filter: blur(4px) brightness(0.3);
+  transform: scale(1.1);
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(11,37,69,0.92) 0%, rgba(19,49,92,0.85) 50%, rgba(11,37,69,0.95) 100%);
+}
+
+/* ===== QUEM SOMOS ===== */
+.about-section { position: relative; overflow: hidden; }
+.about-bg {
+  position: absolute; inset: 0;
+  background: url("../static/low-angle-view-of-modern-government-and-corporate.png") center/cover no-repeat;
+  filter: blur(10px) brightness(1.1);
+  transform: scale(1.15);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+/* ===== RESULTADOS ===== */
+.results-section { position: relative; overflow: hidden; }
+.results-bg {
+  position: absolute; inset: 0;
+  background: url("../static/close-up-of-hands-signing-a-business-contract-with.png") center/cover no-repeat;
+  filter: blur(12px) brightness(1.05);
+  transform: scale(1.1);
+  opacity: 0.18;
+  z-index: 0;
+}
+
+/* ===== DIFERENCIAIS ===== */
+.diff-section { position: relative; overflow: hidden; }
+.diff-bg {
+  position: absolute; inset: 0;
+  background: url("../static/business-meeting-photo-with-colleagues-discussing.png") center/cover no-repeat;
+  filter: blur(10px) brightness(1.05);
+  transform: scale(1.1);
+  opacity: 0.12;
+  z-index: 0;
+}
+
+/* ===== SERVIÇOS ===== */
+.services-section { position: relative; overflow: hidden; }
+.services-bg {
+  position: absolute; inset: 0;
+  background: url("../static/modern-minimal-office-interior-with-large-windows.png") center/cover no-repeat;
+  filter: blur(10px) brightness(1.08);
+  transform: scale(1.1);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* ===== PLANOS ===== */
+.plans-section { position: relative; overflow: hidden; }
+.plans-bg {
+  position: absolute; inset: 0;
+  background: url("../static/diverse-team-of-professionals-working-on-computers.png") center/cover no-repeat;
+  filter: blur(10px) brightness(1.05);
+  transform: scale(1.1);
+  opacity: 0.12;
+  z-index: 0;
+}
+
+/* ===== PROCESSO ===== */
+.process-section { position: relative; overflow: hidden; }
+.process-bg {
+  position: absolute; inset: 0;
+  background: url("../static/wide-angle-photo-of-a-modern-corporate-meeting-roo.png") center/cover no-repeat;
+  filter: blur(10px) brightness(1.05);
+  transform: scale(1.1);
+  opacity: 0.12;
+  z-index: 0;
+}
+
+/* ===== CONTATO ===== */
+.contact-section { position: relative; overflow: hidden; }
+.contact-bg {
+  position: absolute; inset: 0;
+  background: url("../static/dark-photo-of-a-modern-office-interior-at-dusk-mo.png") center/cover no-repeat;
+  filter: blur(6px) brightness(0.4);
+  transform: scale(1.1);
+  z-index: 0;
+}
+.contact-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(11,37,69,0.94), rgba(8,26,46,0.92));
+}
+
+/* ===== ELEMENTOS FLUTUANTES ===== */
+.floating { animation: float 4s ease-in-out infinite; }
+.floating-delay { animation: float 4s ease-in-out infinite 1s; }
+
+/* ===== CTA PULSE ===== */
+.cta-pulse { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+/* ===== SHIMMER BADGE ===== */
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(232,163,61,0.15) 0%, rgba(232,163,61,0.35) 50%, rgba(232,163,61,0.15) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ===== HOVER CARDS ===== */
+.hover-card { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s; }
+.hover-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(11,37,69,0.12); }
+
+.service-card { transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s; }
+.service-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 16px 32px rgba(232,163,61,0.15); border-color: #E8A33D; }
+
+.plan-card { transition: transform 0.4s, box-shadow 0.4s; }
+.plan-card:hover { transform: translateY(-10px); }
+
+.testimonial-card { transition: transform 0.4s, box-shadow 0.4s; }
+.testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,0.08); }
+
+.process-card { transition: transform 0.4s, box-shadow 0.4s; }
+.process-card:hover { transform: translateY(-6px) scale(1.03); }
+
+/* ===== NAV LINK HOVER ===== */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: #E8A33D;
+  transition: width 0.3s;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ===== FORM INPUT FOCUS ===== */
+input, select, textarea { outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
+input:focus, select:focus, textarea:focus { border-color: #0B2545; box-shadow: 0 0 0 3px rgba(11,37,69,0.12); }
+
+/* ===== SCROLL PROGRESS ===== */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, #E8A33D, #f0b85a);
+  z-index: 100; width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .parallax-bg, .hero-bg, .about-bg, .results-bg, .diff-bg, .services-bg, .plans-bg, .process-bg, .contact-bg {
+    background-attachment: scroll;
+  }
+}
