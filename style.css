@@ -88,27 +88,12 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(11,37,69,0.85), rgba(11,37,69,0.7));
 }
-.parallax-bg-light::after {
-  background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(246,248,251,0.88));
-}
-.parallax-bg-dark::after {
-  background: linear-gradient(135deg, rgba(8,26,46,0.92), rgba(11,37,69,0.88));
-}
-
-.bg-image {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
-  filter: blur(8px) brightness(0.95);
-  transform: scale(1.08);
-  z-index: 0;
-  opacity: 0.15;
-}
 
 /* ===== HERO ===== */
 .hero-section { position: relative; overflow: hidden; }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url("../static/business-handshake-moment-in-a-corporate-environme.png") center/cover no-repeat;
+  background: url("static/business-handshake-moment-in-a-corporate-environme.png") center/cover no-repeat;
   filter: blur(4px) brightness(0.3);
   transform: scale(1.1);
 }
@@ -121,7 +106,7 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .about-section { position: relative; overflow: hidden; }
 .about-bg {
   position: absolute; inset: 0;
-  background: url("../static/low-angle-view-of-modern-government-and-corporate.png") center/cover no-repeat;
+  background: url("static/low-angle-view-of-modern-government-and-corporate.png") center/cover no-repeat;
   filter: blur(10px) brightness(1.1);
   transform: scale(1.15);
   opacity: 0.25;
@@ -132,7 +117,7 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .results-section { position: relative; overflow: hidden; }
 .results-bg {
   position: absolute; inset: 0;
-  background: url("../static/close-up-of-hands-signing-a-business-contract-with.png") center/cover no-repeat;
+  background: url("static/close-up-of-hands-signing-a-business-contract-with.png") center/cover no-repeat;
   filter: blur(12px) brightness(1.05);
   transform: scale(1.1);
   opacity: 0.18;
@@ -143,7 +128,7 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .diff-section { position: relative; overflow: hidden; }
 .diff-bg {
   position: absolute; inset: 0;
-  background: url("../static/business-meeting-photo-with-colleagues-discussing.png") center/cover no-repeat;
+  background: url("static/business-meeting-photo-with-colleagues-discussing.png") center/cover no-repeat;
   filter: blur(10px) brightness(1.05);
   transform: scale(1.1);
   opacity: 0.12;
@@ -154,7 +139,7 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .services-section { position: relative; overflow: hidden; }
 .services-bg {
   position: absolute; inset: 0;
-  background: url("../static/modern-minimal-office-interior-with-large-windows.png") center/cover no-repeat;
+  background: url("static/modern-minimal-office-interior-with-large-windows.png") center/cover no-repeat;
   filter: blur(10px) brightness(1.08);
   transform: scale(1.1);
   opacity: 0.15;
@@ -165,7 +150,7 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .plans-section { position: relative; overflow: hidden; }
 .plans-bg {
   position: absolute; inset: 0;
-  background: url("../static/diverse-team-of-professionals-working-on-computers.png") center/cover no-repeat;
+  background: url("static/diverse-team-of-professionals-working-on-computers.png") center/cover no-repeat;
   filter: blur(10px) brightness(1.05);
   transform: scale(1.1);
   opacity: 0.12;
@@ -176,7 +161,7 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .process-section { position: relative; overflow: hidden; }
 .process-bg {
   position: absolute; inset: 0;
-  background: url("../static/wide-angle-photo-of-a-modern-corporate-meeting-roo.png") center/cover no-repeat;
+  background: url("static/wide-angle-photo-of-a-modern-corporate-meeting-roo.png") center/cover no-repeat;
   filter: blur(10px) brightness(1.05);
   transform: scale(1.1);
   opacity: 0.12;
@@ -187,7 +172,7 @@ header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .contact-section { position: relative; overflow: hidden; }
 .contact-bg {
   position: absolute; inset: 0;
-  background: url("../static/dark-photo-of-a-modern-office-interior-at-dusk-mo.png") center/cover no-repeat;
+  background: url("static/dark-photo-of-a-modern-office-interior-at-dusk-mo.png") center/cover no-repeat;
   filter: blur(6px) brightness(0.4);
   transform: scale(1.1);
   z-index: 0;
@@ -248,9 +233,59 @@ input:focus, select:focus, textarea:focus { border-color: #0B2545; box-shadow: 0
   transition: width 0.1s;
 }
 
+/* ===== PLANOS: 5 OPÇÕES ===== */
+.plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+@media (min-width: 1024px) { .plans-grid { grid-template-columns: repeat(5, 1fr); } }
+.plan-card { display: flex; flex-direction: column; position: relative; }
+.plan-featured { background: #0B2545; color: #fff; transform: scale(1.05); box-shadow: 0 20px 40px rgba(11,37,69,0.2); z-index: 2; }
+.plan-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 14px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+.plan-tag-gold { background: #E8A33D; color: #fff; }
+.plan-tag-blue { background: #0B2545; color: #fff; }
+.plan-tag-border { background: #fff; color: #0B2545; border: 2px solid #0B2545; }
+.plan-featured .plan-tag-border { background: #0B2545; color: #E8A33D; border-color: #E8A33D; }
+.plan-desc { font-size: 0.8rem; color: #64748b; min-height: 2.5rem; }
+.plan-featured .plan-desc { color: #cbd5e1; }
+.plan-price { font-size: 1.9rem; font-weight: 800; color: #0B2545; margin-top: 0.75rem; }
+.plan-featured .plan-price { color: #fff; }
+.plan-price span { font-size: 0.85rem; font-weight: 400; color: #64748b; }
+.plan-featured .plan-price span { color: #94a3b8; }
+.plan-note { font-size: 0.72rem; color: #E8A33D; font-weight: 600; margin-top: 0.25rem; min-height: 1rem; }
+.plan-benefits { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+.plan-benefits li { display: flex; gap: 0.5rem; font-size: 0.82rem; color: #475569; }
+.plan-featured .plan-benefits li { color: #e2e8f0; }
+.plan-benefits li::before { content: "✓"; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+.plan-featured .plan-benefits li::before { color: #E8A33D; }
+.plan-btn { display: block; text-align: center; padding: 0.75rem 1rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s; }
+.plan-btn-solid { background: #E8A33D; color: #fff; }
+.plan-btn-solid:hover { background: #d6932f; }
+.plan-btn-outline { border: 2px solid #0B2545; color: #0B2545; }
+.plan-btn-outline:hover { background: #0B2545; color: #fff; }
+.plan-featured .plan-btn-outline { border-color: #E8A33D; color: #E8A33D; }
+.plan-featured .plan-btn-outline:hover { background: #E8A33D; color: #0B2545; }
+.plan-cta-pulse { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+/* ===== SERVIÇOS INCLUSOS ===== */
+.included-box { max-width: 5xl; margin: 3rem auto 0; background: #F6F8FB; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.75rem; }
+.included-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+.included-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #334155; }
+.included-list li::before { content: "✓"; color: #16a34a; font-weight: 700; }
+
+/* ===== PORTAL DE LICITAÇÕES ===== */
+.portal-card { transition: transform 0.3s, box-shadow 0.3s; }
+.portal-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+.portal-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 999px; }
+.portal-tag-nacional { background: #0B2545; color: #fff; }
+.portal-tag-federal { background: #1d4ed8; color: #fff; }
+.portal-tag-estado { background: #16a34a; color: #fff; }
+.portal-tag-plataforma { background: #d97706; color: #fff; }
+.portal-tag-banca { background: #7c3aed; color: #fff; }
+.portal-link { color: #0B2545; font-weight: 600; text-decoration: none; }
+.portal-link:hover { text-decoration: underline; color: #E8A33D; }
+
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
   .parallax-bg, .hero-bg, .about-bg, .results-bg, .diff-bg, .services-bg, .plans-bg, .process-bg, .contact-bg {
     background-attachment: scroll;
   }
+  .plan-featured { transform: scale(1); }
 }
