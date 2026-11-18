@@ -75,25 +75,68 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// ===== FORMULÁRIO =====
+// ===== FORMULÁRIO COM FORMSUBMIT =====
 const form = document.getElementById('leadForm');
 const formMsg = document.getElementById('formMsg');
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', async function(e) {
   e.preventDefault();
   const nome = document.getElementById('nome').value.trim();
   const email = document.getElementById('email').value.trim();
   const telefone = document.getElementById('telefone').value.trim();
+  const cnpj = document.getElementById('cnpj').value.trim();
   const segmento = document.getElementById('segmento').value;
   const tipo = document.getElementById('tipo').value;
+  const edital = document.getElementById('edital').value.trim();
+  const mensagem = document.getElementById('mensagem').value.trim();
+
   if (!nome || !email || !telefone || !segmento || !tipo) {
     formMsg.classList.remove('hidden');
     formMsg.textContent = '⚠️ Preencha os campos obrigatórios (*) antes de enviar.';
     formMsg.className = 'text-center text-sm font-medium text-red-600 bg-red-50 rounded-lg px-4 py-3';
     return;
   }
-  formMsg.classList.remove('hidden');
-  formMsg.textContent = '✅ Recebemos seus dados! Nossa equipe entrará em contato em até 24h úteis.';
-  formMsg.className = 'text-center text-sm font-medium text-green-600 bg-green-50 rounded-lg px-4 py-3';
-  form.reset();
-  formMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  // Monta o payload para o FormSubmit
+  const dados = new URLSearchParams({
+    nome: nome,
+    'e-mail': email,
+    telefone: telefone,
+    cnpj: cnpj || '—',
+    segmento: segmento,
+    'tipo de licitação': tipo,
+    'link do edital': edital || '—',
+    mensagem: mensagem || '—',
+    _subject: `Novo lead do site — ${nome} (${segmento})`,
+    _template: 'table'
+  });
+
+  // Desabilita o botão enquanto envia
+  const btn = form.querySelector('button[type="submit"]');
+  const btnText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  formMsg.classList.add('hidden');
+
+  try {
+    // Envia para o FormSubmit (e-mail configurado no HTML)
+    const resposta = await fetch(form.getAttribute('action'), {
+      method: 'POST',
+      body: dados,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      mode: 'no-cors'
+    });
+    // Com no-cors não conseguimos ler a resposta, mas o envio é efetuado
+    formMsg.classList.remove('hidden');
+    formMsg.textContent = '✅ Recebemos seus dados! Nossa equipe entrará em contato em até 24h úteis.';
+    formMsg.className = 'text-center text-sm font-medium text-green-600 bg-green-50 rounded-lg px-4 py-3';
+    form.reset();
+    formMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (erro) {
+    formMsg.classList.remove('hidden');
+    formMsg.textContent = '❌ Ocorreu um erro ao enviar. Tente novamente ou fale conosco pelo WhatsApp.';
+    formMsg.className = 'text-center text-sm font-medium text-red-600 bg-red-50 rounded-lg px-4 py-3';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = btnText;
+  }
 });
