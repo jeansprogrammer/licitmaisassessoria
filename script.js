@@ -33,7 +33,6 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Counter animation
       if (entry.target.classList.contains('number-card')) {
         const counters = entry.target.querySelectorAll('[data-count]');
         counters.forEach(counter => {
@@ -75,11 +74,13 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// ===== FORMULÁRIO COM FORMSUBMIT =====
+// ===== FORMULÁRIO =====
 const form = document.getElementById('leadForm');
 const formMsg = document.getElementById('formMsg');
+
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
+
   const nome = document.getElementById('nome').value.trim();
   const email = document.getElementById('email').value.trim();
   const telefone = document.getElementById('telefone').value.trim();
@@ -96,47 +97,42 @@ form.addEventListener('submit', async function(e) {
     return;
   }
 
-  // Monta o payload para o FormSubmit
-  const dados = new URLSearchParams({
-    nome: nome,
-    'e-mail': email,
-    telefone: telefone,
-    cnpj: cnpj || '—',
-    segmento: segmento,
-    'tipo de licitação': tipo,
-    'link do edital': edital || '—',
-    mensagem: mensagem || '—',
-    _subject: `Novo lead do site — ${nome} (${segmento})`,
-    _template: 'table'
-  });
+  formMsg.classList.remove('hidden');
+  formMsg.textContent = '⏳ Enviando seus dados...';
+  formMsg.className = 'text-center text-sm font-medium text-blue-600 bg-blue-50 rounded-lg px-4 py-3';
+  formMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-  // Desabilita o botão enquanto envia
-  const btn = form.querySelector('button[type="submit"]');
-  const btnText = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-  formMsg.classList.add('hidden');
+  const payload = new FormData();
+  payload.append('_template', 'box');
+  payload.append('_captcha', 'false');
+  payload.append('_subject', '📩 Novo lead — Licit Mais Assessoria');
+  payload.append('_autoresponse', 'Olá! Recebemos seus dados com sucesso. A equipe da Licit Mais Assessoria entrará em contato em até 24h úteis. Obrigado pelo interesse!');
+  payload.append('_replyto', email);
+
+  payload.append('Nome', nome);
+  payload.append('E-mail', email);
+  payload.append('Telefone / WhatsApp', telefone);
+  payload.append('CNPJ', cnpj || 'Não informado');
+  payload.append('Segmento', segmento);
+  payload.append('Tipo de licitação', tipo);
+  payload.append('Link do edital', edital || 'Não informado');
+  payload.append('Mensagem', mensagem || 'Sem observações');
 
   try {
-    // Envia para o FormSubmit (e-mail configurado no HTML)
-    const resposta = await fetch(form.getAttribute('action'), {
+    await fetch('https://formsubmit.co/ajax/jeansilva20042019@gmail.com', {
       method: 'POST',
-      body: dados,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      mode: 'no-cors'
+      headers: { 'Accept': 'application/json' },
+      body: payload
     });
-    // Com no-cors não conseguimos ler a resposta, mas o envio é efetuado
-    formMsg.classList.remove('hidden');
+
     formMsg.textContent = '✅ Recebemos seus dados! Nossa equipe entrará em contato em até 24h úteis.';
     formMsg.className = 'text-center text-sm font-medium text-green-600 bg-green-50 rounded-lg px-4 py-3';
     form.reset();
     formMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  } catch (erro) {
-    formMsg.classList.remove('hidden');
-    formMsg.textContent = '❌ Ocorreu um erro ao enviar. Tente novamente ou fale conosco pelo WhatsApp.';
+
+  } catch (err) {
+    formMsg.textContent = '❌ Ops! Não foi possível enviar agora. Tente novamente em instantes ou chame no WhatsApp.';
     formMsg.className = 'text-center text-sm font-medium text-red-600 bg-red-50 rounded-lg px-4 py-3';
-  } finally {
-    btn.disabled = false;
-    btn.textContent = btnText;
+    formMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 });
