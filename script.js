@@ -119,7 +119,7 @@ form.addEventListener('submit', async function(e) {
   payload.append('Mensagem', mensagem || 'Sem observações');
 
   try {
-    await fetch('https://formsubmit.co/ajax/jeansilva20042019@gmail.com', {
+    await fetch('https://formsubmit.co/ajax/hirlainedeabreu@gmail.com', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: payload
