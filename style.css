@@ -282,6 +282,10 @@ input:focus, select:focus, textarea:focus { border-color: #0B2545; box-shadow: 0
 .portal-link { color: #0B2545; font-weight: 600; text-decoration: none; }
 .portal-link:hover { text-decoration: underline; color: #E8A33D; }
 
+/* ===== PORTAL NAME CARDS (sem link) ===== */
+.portal-name-card { transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: default; }
+.portal-name-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(11,37,69,0.1); border-color: #E8A33D; }
+
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
   .parallax-bg, .hero-bg, .about-bg, .results-bg, .diff-bg, .services-bg, .plans-bg, .process-bg, .contact-bg {

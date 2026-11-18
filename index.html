@@ -7,6 +7,60 @@
 <link rel="icon" type="image/png" href="static/logo3.png">
 <link rel="apple-touch-icon" href="static/logo3.png">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* ===== PLANOS: 5 OPÇÕES ===== */
+  .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  @media (min-width: 1024px) { .plans-grid { grid-template-columns: repeat(5, 1fr); } }
+  .plan-card { display: flex; flex-direction: column; position: relative; }
+  .plan-featured { background: #0B2545; color: #fff; transform: scale(1.05); box-shadow: 0 20px 40px rgba(11,37,69,0.2); z-index: 2; }
+  .plan-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 14px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  .plan-tag-gold { background: #E8A33D; color: #fff; }
+  .plan-tag-blue { background: #0B2545; color: #fff; }
+  .plan-tag-border { background: #fff; color: #0B2545; border: 2px solid #0B2545; }
+  .plan-featured .plan-tag-border { background: #0B2545; color: #E8A33D; border-color: #E8A33D; }
+  .plan-desc { font-size: 0.8rem; color: #64748b; min-height: 2.5rem; }
+  .plan-featured .plan-desc { color: #cbd5e1; }
+  .plan-price { font-size: 1.9rem; font-weight: 800; color: #0B2545; margin-top: 0.75rem; }
+  .plan-featured .plan-price { color: #fff; }
+  .plan-price span { font-size: 0.85rem; font-weight: 400; color: #64748b; }
+  .plan-featured .plan-price span { color: #94a3b8; }
+  .plan-note { font-size: 0.72rem; color: #E8A33D; font-weight: 600; margin-top: 0.25rem; min-height: 1rem; }
+  .plan-benefits { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+  .plan-benefits li { display: flex; gap: 0.5rem; font-size: 0.82rem; color: #475569; }
+  .plan-featured .plan-benefits li { color: #e2e8f0; }
+  .plan-benefits li::before { content: "✓"; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+  .plan-featured .plan-benefits li::before { color: #E8A33D; }
+  .plan-btn { display: block; text-align: center; padding: 0.75rem 1rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s; }
+  .plan-btn-solid { background: #E8A33D; color: #fff; }
+  .plan-btn-solid:hover { background: #d6932f; }
+  .plan-btn-outline { border: 2px solid #0B2545; color: #0B2545; }
+  .plan-btn-outline:hover { background: #0B2545; color: #fff; }
+  .plan-featured .plan-btn-outline { border-color: #E8A33D; color: #E8A33D; }
+  .plan-featured .plan-btn-outline:hover { background: #E8A33D; color: #0B2545; }
+  .plan-cta-pulse { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+  /* ===== SERVIÇOS INCLUSOS ===== */
+  .included-box { max-width: 5xl; margin: 3rem auto 0; background: #F6F8FB; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.75rem; }
+  .included-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+  .included-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #334155; }
+  .included-list li::before { content: "✓"; color: #16a34a; font-weight: 700; }
+
+  /* ===== PORTAL DE LICITAÇÕES ===== */
+  .portal-card { transition: transform 0.3s, box-shadow 0.3s; }
+  .portal-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+  .portal-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 999px; }
+  .portal-tag-nacional { background: #0B2545; color: #fff; }
+  .portal-tag-federal { background: #1d4ed8; color: #fff; }
+  .portal-tag-estado { background: #16a34a; color: #fff; }
+  .portal-tag-plataforma { background: #d97706; color: #fff; }
+  .portal-tag-banca { background: #7c3aed; color: #fff; }
+  .portal-link { color: #0B2545; font-weight: 600; text-decoration: none; }
+  .portal-link:hover { text-decoration: underline; color: #E8A33D; }
+
+  @media (max-width: 768px) {
+    .plan-featured { transform: scale(1); }
+  }
+</style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
@@ -25,7 +79,7 @@
         </div>
       </a>
       <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
-        <a href="#quem-somos" class="nav-link hover:text-[#0B2545] transition">Quem Somos</a>
+        <a href="#quem-somos" class="nav-link hover:text-[#0B2545] transition">Quem sou eu</a>
         <a href="#resultados" class="nav-link hover:text-[#0B2545] transition">Resultados</a>
         <a href="#servicos" class="nav-link hover:text-[#0B2545] transition">Serviços</a>
         <a href="#planos" class="nav-link hover:text-[#0B2545] transition">Planos</a>
@@ -41,7 +95,7 @@
     </div>
   </div>
   <div id="mobileMenu" class="lg:hidden hidden bg-white border-t border-slate-200 px-4 pb-6 pt-2 space-y-1 text-sm font-medium text-slate-700">
-    <a href="#quem-somos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Quem Somos</a>
+    <a href="#quem-somos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Quem sou eu</a>
     <a href="#resultados" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Resultados</a>
     <a href="#servicos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Serviços</a>
     <a href="#planos" class="block py-2.5 px-3 rounded-md hover:bg-slate-50">Planos</a>
@@ -71,8 +125,8 @@
         <a href="#processo" class="px-7 py-3.5 rounded-lg border border-white/30 text-white font-semibold text-center hover:bg-white/10 transition">Como Funciona</a>
       </div>
       <div class="hero-title delay-4 mt-10 flex items-center gap-6 text-sm text-slate-300">
-        <div class="flex items-center gap-2"><span class="text-[#E8A33D]">★</span> 4,9/5 de avaliação</div>
-        <div class="flex items-center gap-2"><span class="text-[#E8A33D]">✓</span> +250 licitações vencidas</div>
+        <div class="flex items-center gap-2"><span class="text-[#E8A33D]">★</span> 4,6/5 de avaliação</div>
+        <div class="flex items-center gap-2"><span class="text-[#E8A33D]">✓</span> +50 licitações vencidas</div>
       </div>
     </div>
     <div class="hidden lg:block">
@@ -120,13 +174,13 @@
   <div class="about-bg" style="background-image:url('static/low-angle-view-of-modern-government-and-corporate.png');"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
     <div class="reveal-left">
-      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Quem Somos</span>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Especialistas em transformar editais em contratos fechados</h2>
+      <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Quem sou eu</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Especialista em transformar editais em contratos fechados</h2>
       <p class="mt-6 text-lg text-slate-600 leading-relaxed">
-        A <strong class="text-[#0B2545]">Licit Mais Assessoria</strong> nasceu para simplificar o universo das licitações públicas. Somos uma equipe multidisciplinar com mais de 12 anos de experiência, atuando lado a lado com empresas de todos os portes e segmentos.
+        A <strong class="text-[#0B2545]">Shirlaine Abreus,</strong> uma profissional com mais de 17 anos de experiência nos setores público e privado, com passagem pelo Exército Brasileiro, especializado em Licitações, Compras Públicas, Gestão Administrativa e Contratos. Atua na análise de editais, identificação de oportunidades, elaboração de propostas, organização de habilitação e participação em pregões eletrônicos e presenciais.
       </p>
       <p class="mt-4 text-slate-600 leading-relaxed">
-        Analisamos editais, elaboramos propostas competitivas, cuidamos da documentação e acompanhamos cada etapa — sempre com transparência total e foco em resultado.
+        Conhecimento da Lei nº 14.133/2021 e da Lei nº 13.303/2016, com atuação em termos de referência, atas de registro de preços, contratos administrativos, empenhos e fiscalização contratual. Perfil analítico, organizado e orientado a resultados.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <div class="flex items-center gap-3 px-5 py-3 rounded-lg bg-slate-50 border border-slate-200 hover-card">
@@ -141,9 +195,9 @@
       <a href="#contato" class="mt-8 inline-block px-7 py-3.5 rounded-lg bg-[#0B2545] text-white font-semibold hover:bg-[#13315C] transition shadow-md hover:shadow-lg">Fale com um especialista</a>
     </div>
     <div class="reveal-right relative">
-      <img src="static/professional-photo-of-a-cheerful-brazilian-busines.jpg" alt="Equipe Licit Mais" class="rounded-2xl shadow-2xl w-full object-cover h-[420px]">
+      <img src="https://d31zra5bs5df64.cloudfront.net/prod/3LduiCwSvFwJbdjpwRBZ0wt8gzt/chat/3LyuqGi8WVD1X3jE78qMBn6EZpJ/3MG7BMpF00xqyuELGRov8t0QkLS.jpeg?Expires=1794968513&Key-Pair-Id=K2FT0I8VPJSP5H&Signature=Ey22Jd-aROC6kKHDWUkmLkr~MBx5RUmGlaK2EwMyAzXPH3ztcFteRfV3PbrfK1QJywaGLYfxTJO5DCETbxHNFLtLPiAPEGVsDY9X1URPq3wh2TYxcCQLwWMSshsKkXv9klLWjYC8C-YFGRmnlFbdblwiLok8l5SJCM4jBlm2MXtn2XhTCPEpmqAqZQNstfi1nsDi47gTdhdzwfNXJK6mM2jwKjhWaJJM7HhAOTeQb4qmZ3rGucG0z9uN9oGJGcL0LrYALlskacJ4~iZo6reS4Tgd-09rMqZ0BjcM7hw7SSA1JOUhtmDSotVI0jzZBJPQd9dtsxVDmlRQrSp4fyjp3g__" alt="Shirlaine — Licit Mais" class="rounded-2xl shadow-2xl w-full object-cover h-[420px]">
       <div class="absolute -bottom-6 -left-6 bg-[#0B2545] text-white rounded-xl shadow-xl px-6 py-4">
-        <p class="text-2xl font-bold">12+</p>
+        <p class="text-2xl font-bold">17+</p>
         <p class="text-xs text-slate-300">Anos de experiência</p>
       </div>
     </div>
@@ -161,11 +215,11 @@
     </div>
     <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="number-card bg-white rounded-2xl border border-slate-200 p-8 text-center hover-card">
-        <p class="text-4xl font-bold text-[#0B2545]" data-count="250">0+</p>
+        <p class="text-4xl font-bold text-[#0B2545]" data-count="50">0+</p>
         <p class="mt-2 text-slate-600">Licitações vencidas</p>
       </div>
       <div class="number-card delay-1 bg-white rounded-2xl border border-slate-200 p-8 text-center hover-card">
-        <p class="text-4xl font-bold text-[#0B2545]">R$ <span data-count="48">0</span>mi</p>
+        <p class="text-4xl font-bold text-[#0B2545]">R$ <span data-count="11">0</span>mi</p>
         <p class="mt-2 text-slate-600">Em contratos firmados</p>
       </div>
       <div class="number-card delay-2 bg-white rounded-2xl border border-slate-200 p-8 text-center hover-card">
@@ -282,7 +336,7 @@
 
     <div class="mt-16 plans-grid">
       <!-- PLANO AVULSO -->
-      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-6 reveal-scale">
+      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-6 plan-card reveal-scale">
         <span class="plan-tag plan-tag-gold">Pagamento único</span>
         <h3 class="text-lg font-bold text-[#0B2545] mt-4">Avulso</h3>
         <p class="plan-desc">Ideal para testar ou para demanda pontual</p>
@@ -299,12 +353,12 @@
       </div>
 
       <!-- PLANO ESSENCIAL -->
-      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-6 reveal-scale delay-1">
+      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-6 plan-card reveal-scale delay-1">
         <span class="plan-tag plan-tag-border">Para iniciar</span>
         <h3 class="text-lg font-bold text-[#0B2545] mt-4">Essencial</h3>
         <p class="plan-desc">Ideal para quem está começando a licitar</p>
         <p class="plan-price">R$ 500 <span>/mês</span></p>
-        <p class="plan-note">Até 5 editais por mês</p>
+        <p class="plan-note">Até 5 editais por mês (1/semana)</p>
         <ul class="plan-benefits">
           <li>Análise completa do edital</li>
           <li>Verificação documental</li>
@@ -316,12 +370,12 @@
       </div>
 
       <!-- PLANO PROFISSIONAL (DESTAQUE) -->
-      <div class="plan-card plan-featured rounded-2xl border-2 border-[#0B2545] p-6 reveal-scale delay-2">
+      <div class="plan-card plan-featured rounded-2xl border-2 border-[#0B2545] p-6 plan-card reveal-scale delay-2">
         <span class="plan-tag plan-tag-gold">Mais popular</span>
         <h3 class="text-lg font-bold mt-4">Profissional</h3>
         <p class="plan-desc">Para empresas que licitam com frequência</p>
         <p class="plan-price">R$ 800 <span>/mês</span></p>
-        <p class="plan-note">Até 15 editais por mês</p>
+        <p class="plan-note">Até 15 editais por mês (2/semana)</p>
         <ul class="plan-benefits">
           <li>Análise completa do edital</li>
           <li>Verificação documental</li>
@@ -333,12 +387,12 @@
       </div>
 
       <!-- PLANO PREMIUM -->
-      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-6 reveal-scale delay-3">
+      <div class="plan-card bg-white rounded-2xl border-2 border-slate-200 p-6 plan-card reveal-scale delay-3">
         <span class="plan-tag plan-tag-border">Melhor custo-benefício</span>
         <h3 class="text-lg font-bold text-[#0B2545] mt-4">Premium</h3>
         <p class="plan-desc">Solução completa para crescimento acelerado</p>
         <p class="plan-price">R$ 1.000 <span>/mês</span></p>
-        <p class="plan-note">Até 25 editais por mês</p>
+        <p class="plan-note">Até 25 editais por mês (3/semana)</p>
         <ul class="plan-benefits">
           <li>Análise completa do edital</li>
           <li>Verificação documental</li>
@@ -350,12 +404,12 @@
       </div>
 
       <!-- PLANO EMPRESARIAL -->
-      <div class="plan-card bg-white rounded-2xl border-2 border-[#E8A33D] p-6 reveal-scale delay-4">
+      <div class="plan-card bg-white rounded-2xl border-2 border-[#E8A33D] p-6 plan-card reveal-scale delay-4">
         <span class="plan-tag plan-tag-gold">Ilimitado</span>
         <h3 class="text-lg font-bold text-[#0B2545] mt-4">Empresarial</h3>
         <p class="plan-desc">Para grandes volumes e demandas intensas</p>
         <p class="plan-price">R$ 1.500 <span>/mês</span></p>
-        <p class="plan-note">Até 40 editais (2/dia útil · 10/semana)</p>
+        <p class="plan-note">Até 40 editais (8/semana)</p>
         <ul class="plan-benefits">
           <li>Análises ilimitadas de editais*</li>
           <li>Verificação documental</li>
@@ -389,94 +443,66 @@
     <div class="text-center max-w-2xl mx-auto reveal">
       <span class="text-sm font-semibold text-[#E8A33D] uppercase tracking-wider">Onde buscar oportunidades</span>
       <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-[#0B2545]">Portais de Licitação</h2>
-      <p class="mt-4 text-slate-600 text-lg">Os principais canais onde encontramos oportunidades para nossos clientes.</p>
+      <p class="mt-4 text-slate-600 text-lg">Monitoramos diariamente os principais canais do mercado para encontrar as melhores oportunidades para você.</p>
     </div>
 
-    <!-- Nacionais / Federais -->
+    <!-- Federais -->
     <div class="mt-12 reveal">
-      <h3 class="text-sm font-bold text-[#0B2545] uppercase tracking-wider mb-4">🏛️ Nacionais e Federais</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-nacional">Nacional</span><span class="text-xl">🗂️</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">PNCP — Portal Nacional de Contratações Públicas</h4>
-          <p class="mt-1 text-sm text-slate-600">Editais, avisos, atas, contratos e planos de contratação de todos os entes.</p>
-          <a href="https://pncp.gov.br/app/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-federal">Federal</span><span class="text-xl">🏛️</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">Compras.gov.br</h4>
-          <p class="mt-1 text-sm text-slate-600">Portal oficial do Governo Federal — consultar oportunidades e participar de contratações.</p>
-          <a href="https://www.gov.br/compras/pt-br" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-federal">Federal</span><span class="text-xl">📋</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">SICAF</h4>
-          <p class="mt-1 text-sm text-slate-600">Cadastro e habilitação cadastral de fornecedores do Governo Federal.</p>
-          <a href="https://www.gov.br/compras/pt-br" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
+      <h3 class="text-sm font-bold text-[#0B2545] uppercase tracking-wider mb-4">🏛️ Federais</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Compras.gov.br</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">PNCP</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">SICAF</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">SIAFI</div>
       </div>
     </div>
 
-    <!-- Pernambuco (prioridade) -->
-    <div class="mt-12 reveal">
-      <h3 class="text-sm font-bold text-[#0B2545] uppercase tracking-wider mb-4">📍 Pernambuco (prioridade regional)</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="portal-card bg-white rounded-2xl border-2 border-[#16a34a] p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-estado">Estado</span><span class="text-xl">🏞️</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">PE-Integrado</h4>
-          <p class="mt-1 text-sm text-slate-600">Portal de compras do Governo de Pernambuco — prioritário para clientes de Garanhuns e região.</p>
-          <a href="https://www.peintegrado.pe.gov.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-estado">Estado</span><span class="text-xl">⚓</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">Suape</h4>
-          <p class="mt-1 text-sm text-slate-600">Licitações e contratações do complexo portuário de Pernambuco.</p>
-          <a href="https://www.suape.pe.gov.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
+    <!-- Privadas -->
+    <div class="mt-10 reveal">
+      <h3 class="text-sm font-bold text-[#0B2545] uppercase tracking-wider mb-4">💼 Privadas</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Portal de Compras Públicas</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">BLL</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">BNC</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Licitanet</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Licitar Digital</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">ComprasBR</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">BBMNET</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Licita Mais Brasil</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">M2A</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">AMM Licita</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">LicitaCon</div>
       </div>
     </div>
 
-    <!-- Plataformas de disputa -->
-    <div class="mt-12 reveal">
-      <h3 class="text-sm font-bold text-[#0B2545] uppercase tracking-wider mb-4">💻 Plataformas de disputa eletrônica</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-plataforma">Plataforma</span><span class="text-xl">⚡</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">BLL Compras</h4>
-          <p class="mt-1 text-sm text-slate-600">Pregões e disputas eletrônicas.</p>
-          <a href="https://www.bll.org.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-plataforma">Plataforma</span><span class="text-xl">📊</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">BBMNET</h4>
-          <p class="mt-1 text-sm text-slate-600">Bolsa Brasileira de Mercadorias — pregões e disputas.</p>
-          <a href="https://www.bbmnetlicitacoes.com.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-plataforma">Plataforma</span><span class="text-xl">🛒</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">BNC — Bolsa Nacional de Compras</h4>
-          <p class="mt-1 text-sm text-slate-600">Pregões e disputas eletrônicas.</p>
-          <a href="https://www.bnc.org.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-plataforma">Plataforma</span><span class="text-xl">📄</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">Licitanet</h4>
-          <p class="mt-1 text-sm text-slate-600">Pregões e disputas eletrônicas de órgãos contratantes.</p>
-          <a href="https://www.licitanet.com.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-plataforma">Plataforma</span><span class="text-xl">💻</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">Licitar Digital</h4>
-          <p class="mt-1 text-sm text-slate-600">Pregões e disputas eletrônicas.</p>
-          <a href="https://www.licitardigital.com.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
-        <div class="portal-card bg-white rounded-2xl border border-slate-200 p-6">
-          <div class="flex items-center justify-between"><span class="portal-tag portal-tag-plataforma">Plataforma</span><span class="text-xl">🏦</span></div>
-          <h4 class="mt-3 font-semibold text-[#0B2545]">Licitações-e 2.0 (Banco do Brasil)</h4>
-          <p class="mt-1 text-sm text-slate-600">Oportunidades e disputas eletrônicas do BB e órgãos usuários.</p>
-          <a href="https://www.licitacoes-e2.bb.com.br/" target="_blank" rel="noopener" class="portal-link mt-3 inline-block text-sm">Acessar portal →</a>
-        </div>
+    <!-- Estaduais -->
+    <div class="mt-10 reveal">
+      <h3 class="text-sm font-bold text-[#0B2545] uppercase tracking-wider mb-4">📍 Estaduais</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">PE Integrado</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Compras MG</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Compras RS</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Comprasnet BA</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Comprasnet GO</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">SIGA/RJ</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">e-LIC/SC</div>
       </div>
+    </div>
+
+    <!-- Estatais e instituições -->
+    <div class="mt-10 reveal">
+      <h3 class="text-sm font-bold text-[#0B2545] uppercase tracking-wider mb-4">🏢 Estatais e instituições</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Petronect (Petrobras)</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Caixa</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Licitações-e</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Banco do Brasil</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Cemig</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Correios</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Infraero</div>
+        <div class="portal-name-card bg-white rounded-xl border border-slate-200 px-5 py-4 text-center font-semibold text-[#0B2545]">Sistema S</div>
+      </div>
+      <p class="mt-3 text-xs text-slate-500 text-center">Sistema S: SENAI, SENAC, SESI, SESC, SEBRAE e SENAR</p>
     </div>
 
     <!-- Nota importante -->
@@ -485,7 +511,7 @@
         <span class="text-2xl">💡</span>
         <div>
           <p class="font-semibold">Como trabalhamos:</p>
-          <p class="mt-1 text-slate-300">Monitoramos esses portais diariamente, analisamos a viabilidade de cada edital para o seu segmento e cuidamos de todo o processo — cadastro, documentação, proposta e acompanhamento. Você não precisa navegar por todos esses canais: a <strong class="text-[#E8A33D]">Licit Mais</strong> faz isso por você.</p>
+          <p class="mt-1 text-slate-300">Monitoramos todos esses portais diariamente, analisamos a viabilidade de cada edital para o seu segmento e cuidamos de todo o processo — cadastro, documentação, proposta e acompanhamento. Você não precisa navegar por nenhum desses canais: a <strong class="text-[#E8A33D]">Licit Mais</strong> faz isso por você.</p>
         </div>
       </div>
     </div>
@@ -519,7 +545,7 @@
       <div class="process-card relative bg-white rounded-2xl p-8 border border-slate-200 reveal delay-3">
         <div class="absolute -top-5 left-8 w-10 h-10 rounded-full bg-[#E8A33D] text-white font-bold flex items-center justify-center shadow-lg">4</div>
         <h3 class="mt-4 text-lg font-semibold text-[#0B2545]">Participação e vitória</h3>
-        <p class="mt-2 text-slate-600 text-sm">Acompanhamos o certame e trabalhamos até a assinatura do seu contrato.</p>
+        <p class="mt-2 text-slate-600 text-sm">Acompanhamos o certame e trabalhamos até a assinatura do seu contrato (plano empresarial).</p>
       </div>
     </div>
     <div class="mt-12 text-center reveal">
@@ -553,11 +579,12 @@
         </div>
       </div>
       <div class="testimonial-card bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal delay-2">
-        <div class="flex text-[#E8A33D] text-lg">★★★★★</div>
-        <p class="mt-4 text-slate-700 italic">"Do documento à assinatura, tudo organizado. A transparência nos relatórios nos dá total confiança no processo."</p>
+        <div class="flex text-[#E8A33D] text-lg">★★★★★ <span class="ml-2 text-slate-700 not-italic font-semibold">5,0</span></div>
+        <p class="mt-1 text-xs text-slate-400">Cadastro em edital de credenciamento do SEBRAE · 16/04/2025 – 01/05/2025</p>
+        <p class="mt-4 text-slate-700 italic">"Ótima profissional e proativa"</p>
         <div class="mt-6 flex items-center gap-3">
-          <div class="w-12 h-12 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-semibold">RS</div>
-          <div><p class="font-semibold text-[#0B2545]">Ricardo Sampaio</p><p class="text-sm text-slate-500">CEO — TechSampa Informática</p></div>
+          <div class="w-12 h-12 rounded-full bg-[#E8A33D] text-white flex items-center justify-center font-semibold">SB</div>
+          <div><p class="font-semibold text-[#0B2545]">SEBRAE</p><p class="text-sm text-slate-500">Credenciamento 2025</p></div>
         </div>
       </div>
     </div>
@@ -577,15 +604,15 @@
       <div class="mt-10 space-y-5 text-slate-200">
         <div class="flex items-start gap-4 hover-card p-2 rounded-lg">
           <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center text-xl">📞</div>
-          <div><p class="font-semibold text-white">Telefone / WhatsApp</p><p class="text-slate-300">(87) 99999-0000</p></div>
+          <div><p class="font-semibold text-white">Telefone / WhatsApp</p><p class="text-slate-300">(81) 99540-1469</p></div>
         </div>
         <div class="flex items-start gap-4 hover-card p-2 rounded-lg">
           <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center text-xl">✉️</div>
-          <div><p class="font-semibold text-white">E-mail</p><p class="text-slate-300">contato@licitmais.com.br</p></div>
+          <div><p class="font-semibold text-white">E-mail</p><p class="text-slate-300">hirlainedeabreu@gmail.com</p></div>
         </div>
         <div class="flex items-start gap-4 hover-card p-2 rounded-lg">
           <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center text-xl">📍</div>
-          <div><p class="font-semibold text-white">Endereço</p><p class="text-slate-300">Garanhuns, PE — atendimento em todo o Brasil</p></div>
+          <div><p class="font-semibold text-white">Endereço</p><p class="text-slate-300">Recife, PE — atendimento em todo o Brasil</p></div>
         </div>
       </div>
     </div>
